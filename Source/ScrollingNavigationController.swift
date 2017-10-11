@@ -205,6 +205,13 @@ open class ScrollingNavigationController: UINavigationController, UIGestureRecog
     center.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
   }
 
+  // MARK: - Show hide overrides
+
+  open override func setNavigationBarHidden(_ hidden: Bool, animated: Bool) {
+    super.setNavigationBarHidden(hidden, animated: animated)
+    updateNavbarAlpha()
+  }
+
   // MARK: - Gesture recognizer
 
   @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
